@@ -239,7 +239,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/09/04/Log2243/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2019/09/04/Log2243/" class="post-title-link" itemprop="url">【洛谷 P2243 电路维修】解题报告</a>
           
         </h1>
 
@@ -254,12 +254,25 @@
                 
               
 
-              <time title="创建时间：2019-09-04 20:53:45 / 修改时间：20:54:03" itemprop="dateCreated datePublished" datetime="2019-09-04T20:53:45+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-04 20:53:45 / 修改时间：21:41:50" itemprop="dateCreated datePublished" datetime="2019-09-04T20:53:45+08:00">2019-09-04</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题解/" itemprop="url" rel="index"><span itemprop="name">题解</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -273,7 +286,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="思路：双端队列最短路"><a href="#思路：双端队列最短路" class="headerlink" title="思路：双端队列最短路"></a>思路：双端队列最短路</h2><p>正如无数题解所言，这道题就是个裸的<strong>双端队列</strong>最短路，关键是要想清楚怎么建图</p>
+<p>建边的规则：需要旋转那么就建权值为 1 的边，否则建权值为 0 的边</p>
+<p>在将节点入队的时候，将权值为 0 的插入队头，权值为 1 的插入队尾</p>
+<p>然后就是正常跑最短路</p>
+<p>然而这道题坑就坑在Linux的<strong>双换行符</strong></p>
+<p>另外由于一个点多组数据所以要记得初始化</p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/04/Log2243/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -326,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2019-09-04 20:52:42 / 修改时间：20:53:31" itemprop="dateCreated datePublished" datetime="2019-09-04T20:52:42+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-04 20:52:42 / 修改时间：21:41:48" itemprop="dateCreated datePublished" datetime="2019-09-04T20:52:42+08:00">2019-09-04</time>
             </span>
           
             
@@ -432,6 +459,24 @@
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        
       </div>
     
   </nav>

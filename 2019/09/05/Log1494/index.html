@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","width":300,"display":"always","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="思路：莫队关于莫队，不懂请自行询问度娘。 好吧我还是扔一个莫队吧 下面是题解正文：">
+<meta name="keywords" content="莫队算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【[国家集训队] 小z的袜子】解题报告">
+<meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/05/Log1494/index.html">
+<meta property="og:site_name" content="Yukhoi">
+<meta property="og:description" content="思路：莫队关于莫队，不懂请自行询问度娘。 好吧我还是扔一个莫队吧 下面是题解正文：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-05T13:04:16.630Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【[国家集训队] 小z的袜子】解题报告">
+<meta name="twitter:description" content="思路：莫队关于莫队，不懂请自行询问度娘。 好吧我还是扔一个莫队吧 下面是题解正文：">
+  <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/05/Log1494/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>【[国家集训队] 小z的袜子】解题报告 | Yukhoi</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yukhoi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">坠欢莫拾，酒痕在衣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Yukhoi-Why" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://Yukhoi-Why.github.io/2019/09/05/Log1494/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yukhoi">
+      <meta itemprop="description" content="SCPer/灵魂画手">
+      <meta itemprop="image" content="/images/Yukhoi.bmp">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yukhoi">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【[国家集训队] 小z的袜子】解题报告
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-05 20:41:05 / 修改时间：21:04:16" itemprop="dateCreated datePublished" datetime="2019-09-05T20:41:05+08:00">2019-09-05</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题解/" itemprop="url" rel="index"><span itemprop="name">题解</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-coffee"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思路：莫队"><a href="#思路：莫队" class="headerlink" title="思路：莫队"></a>思路：莫队</h2><p>关于莫队，不懂请自行询问<a href="https://www.baidu.com" target="_blank" rel="noopener">度娘</a>。</p>
+<p><del>好吧我还是扔一个<a href="https://baijiahao.baidu.com/s?id=1611364100257622493&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">莫队</a>吧</del></p>
+<p>下面是题解正文：</p>
+<a id="more"></a>
+<p>很显然，用莫队只能直接统计出区间中各个数出现的次数 cnt，求概率仍需处理。</p>
+<p>那么我们先假定当前区间为 [ l，r ]，如果我们只考虑当前数为 x，出现了 cnt[ x ] 次，则数的总个数（区间长度）为</p>
+<script type="math/tex; mode=display">y = r - l + 1</script><p>抽出两个数的可能的事件数量</p>
+<script type="math/tex; mode=display">pos\_sum=C_{y}^{2}=\frac{y\times(y-1)}{2}=\frac{(r-l+1)\times(r-l)}{2}</script><p>抽出两个 x 的可能的事件数量</p>
+<script type="math/tex; mode=display">pos\_dbx=C_{cnt[x]}^{2}=\frac{cnt[x]\times(cnt[x]-1)}{2}</script><p>而抽出两个 x 的概率</p>
+<script type="math/tex; mode=display">pos\_x=\frac{pos\_dbx}{pos\_sum}=\frac{cnt[x]\times(cnt[x]-1)}{(r-l+1)\times(r-l)}</script><p>当然要记得化成最简分数。那么在区间中抽到两个相同数的概率为</p>
+<script type="math/tex; mode=display">pos=\sum_{i=1}^{n}\frac{cnt[i]^2-cnt[i]}{(r-l+1)\times(r-l)}=\frac{\sum_{i=1}^{n}cnt[i]^2-cnt[i]}{(r-l+1)\times(r-l)}</script><p>同时在区间 [ l，r ] 我们有</p>
+<script type="math/tex; mode=display">\sum_{i=1}^{n}cnt[i]=r-l+1</script><p>证明从略，则抽到两个相同数的概率为</p>
+<script type="math/tex; mode=display">pos=\frac{\sum_{i=1}^{n}cnt[i]^2-(r-l+1)}{(r-l+1)\times(r-l)}</script><p>而这时候，我们用<strong>莫队</strong>求出的 cnt 数组也就有了用武之地啦！也就是说，我们只要用莫队<strong>维护各个数出现次数的平方和</strong>就好了，而由于数列中的数都满足小于等于 n ，我们甚至都不需要<strong>离散化</strong>！！！</p>
+<h3 id="完整代码："><a href="#完整代码：" class="headerlink" title="完整代码："></a>完整代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mkpr make_pair</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;LL, LL&gt; pall;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn = <span class="number">50005</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">Getchar</span><span class="params">()</span> </span>&#123; <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">35</span>], *p1 = buf, *p2 = buf;</span><br><span class="line">	<span class="keyword">return</span> p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, <span class="number">1</span>, <span class="number">35</span>, <span class="built_in">stdin</span>), p1 == p2) ? EOF : *p1++; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123; <span class="keyword">register</span> <span class="keyword">int</span> QwQ = <span class="number">0</span>, QAQ = <span class="number">0</span>; <span class="keyword">register</span> <span class="keyword">char</span> TAT = Getchar();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(TAT)) QwQ |= (TAT == <span class="string">'-'</span>), TAT = Getchar();</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(TAT)) QAQ = (QAQ &lt;&lt; <span class="number">1</span>) + (QAQ &lt;&lt; <span class="number">3</span>) + (TAT ^ <span class="number">48</span>), TAT = Getchar();</span><br><span class="line">	<span class="keyword">return</span> QwQ ? -QAQ : QAQ; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T_T</span>&gt;<span class="title">void</span> <span class="title">write</span>(<span class="title">T_T</span> <span class="title">QAQ</span>) &#123;</span> <span class="keyword">if</span> (!QAQ) &#123;<span class="built_in">puts</span>(<span class="string">"0"</span>); <span class="keyword">return</span>;&#125;</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">int</span> QwQ = <span class="number">0</span>; <span class="keyword">register</span> <span class="keyword">char</span> TAT[<span class="number">20</span>]; <span class="keyword">if</span> (QAQ &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">'-'</span>), QAQ = -QAQ;</span><br><span class="line">	<span class="keyword">while</span> (QAQ) TAT[++QwQ] = (QAQ % <span class="number">10</span>) + <span class="number">48</span>, QAQ /= <span class="number">10</span>; <span class="keyword">while</span> (QwQ) <span class="built_in">putchar</span>(TAT[QwQ--]); <span class="built_in">putchar</span>(<span class="string">'\n'</span>); &#125;</span><br><span class="line"><span class="comment">//不可描述的读优输优模板……</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r, id;</span><br><span class="line">&#125;;</span><br><span class="line">node qry[Maxn];</span><br><span class="line"><span class="keyword">int</span> n, m, c[Maxn], blk, cnt[Maxn], bl[Maxn];</span><br><span class="line">LL pls;</span><br><span class="line">pall ans[Maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> node a, <span class="keyword">const</span> node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bl[a.l] != bl[b.l]) <span class="keyword">return</span> a.l &lt; b.l;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (bl[a.l] &amp; <span class="number">1</span>) <span class="keyword">return</span> a.r &lt; b.r;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.r &gt; b.r;</span><br><span class="line">	<span class="comment">//小技巧，奇偶性优化排序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> flg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	pls -= cnt[c[x]] * cnt[c[x]];</span><br><span class="line">	cnt[c[x]] += flg;</span><br><span class="line">	pls += cnt[c[x]] * cnt[c[x]];</span><br><span class="line">	<span class="comment">//莫队维护平方和 pls 的过程</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">gcd</span><span class="params">(pall &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	LL a = x.second, b = x.first, tmp;</span><br><span class="line">	<span class="keyword">while</span> (b)</span><br><span class="line">	&#123;</span><br><span class="line">		tmp =  a % b;</span><br><span class="line">		a = b;</span><br><span class="line">		b = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	x.first /= a;</span><br><span class="line">	x.second /= a;</span><br><span class="line">	<span class="comment">//由于要求最简分数，那么除以gcd就可以了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n = read(), m = read();</span><br><span class="line">	blk = <span class="built_in">sqrt</span>(n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		c[i] = read(), bl[i] = (i - <span class="number">1</span>) / blk + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">		qry[i].l = read(), qry[i].r = read(), qry[i].id = i;</span><br><span class="line">	sort(qry + <span class="number">1</span>, qry + m + <span class="number">1</span>, cmp);</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">int</span> nl = <span class="number">1</span>, nr = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">register</span> <span class="keyword">int</span> l = qry[i].l, r = qry[i].r, id = qry[i].id;</span><br><span class="line">		<span class="keyword">while</span> (nl &lt; l) update(nl++, <span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">while</span> (nl &gt; l) update(--nl, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">while</span> (nr &lt; r) update(++nr, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">while</span> (nr &gt; r) update(nr--, <span class="number">-1</span>);</span><br><span class="line">		<span class="comment">//莫队主体</span></span><br><span class="line">		<span class="keyword">if</span> (l == r)</span><br><span class="line">		&#123;</span><br><span class="line">			ans[id].first = <span class="number">0</span>, ans[id].second = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125; <span class="comment">//特殊情况的判断</span></span><br><span class="line">		ans[id].second = <span class="number">1l</span>l * (r - l) * (r - l + <span class="number">1</span>);</span><br><span class="line">		ans[id].first = pls - (r - l + <span class="number">1</span>);</span><br><span class="line">		<span class="comment">//按照公式进行处理，ans.first 是分子，ans.second 是分母</span></span><br><span class="line">		gcd(ans[id]);<span class="comment">//化成最简分数</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld/%lld\n"</span>, ans[i].first, ans[i].second);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Coded By Yukhoi</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/莫队算法/" rel="tag"><i class="fa fa-tag"></i> 莫队算法</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/04/Log2243/" rel="next" title="【洛谷 P2243 电路维修】解题报告">
+                  <i class="fa fa-chevron-left"></i> 【洛谷 P2243 电路维修】解题报告
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路：莫队"><span class="nav-number">1.</span> <span class="nav-text">思路：莫队</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码："><span class="nav-number">1.1.</span> <span class="nav-text">完整代码：</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/Yukhoi.bmp"
+      alt="Yukhoi">
+  <p class="site-author-name" itemprop="name">Yukhoi</p>
+  <div class="site-description" itemprop="description">SCPer/灵魂画手</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yukhoi</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '616a637f64173fc80764',
+      clientSecret: '366888563ef7a98c7f6e0ba7eac3ef2fcfd292a1',
+      repo: 'yukhoi-why.github.io',
+      owner: 'yukhoi-why',
+      admin: ['yukhoi-why'],
+      id: 'e55a035030a2c3132ce6269d4ab84b8f',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

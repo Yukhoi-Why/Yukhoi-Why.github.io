@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="思路：莫队关于莫队，不懂请自行询问度娘。 好吧我还是扔一个莫队吧 下面是题解正文：">
+  <meta name="description" content="思路：莫队很显然，用莫队只能直接统计出区间中各个数出现的次数 cnt，求概率仍需处理。">
 <meta name="keywords" content="莫队算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【[国家集训队] 小z的袜子】解题报告">
 <meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/05/Log1494/index.html">
 <meta property="og:site_name" content="Yukhoi">
-<meta property="og:description" content="思路：莫队关于莫队，不懂请自行询问度娘。 好吧我还是扔一个莫队吧 下面是题解正文：">
+<meta property="og:description" content="思路：莫队很显然，用莫队只能直接统计出区间中各个数出现的次数 cnt，求概率仍需处理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T13:04:16.630Z">
+<meta property="og:updated_time" content="2019-09-08T04:59:23.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【[国家集训队] 小z的袜子】解题报告">
-<meta name="twitter:description" content="思路：莫队关于莫队，不懂请自行询问度娘。 好吧我还是扔一个莫队吧 下面是题解正文：">
+<meta name="twitter:description" content="思路：莫队很显然，用莫队只能直接统计出区间中各个数出现的次数 cnt，求概率仍需处理。">
   <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/05/Log1494/">
 
 
@@ -275,11 +275,19 @@
                 
               
 
-              <time title="创建时间：2019-09-05 20:41:05 / 修改时间：21:04:16" itemprop="dateCreated datePublished" datetime="2019-09-05T20:41:05+08:00">2019-09-05</time>
+              <time title="创建时间：2019-09-05 20:41:05" itemprop="dateCreated datePublished" datetime="2019-09-05T20:41:05+08:00">2019-09-05</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-08 12:59:23" itemprop="dateModified" datetime="2019-09-08T12:59:23+08:00">2019-09-08</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -315,11 +323,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="思路：莫队"><a href="#思路：莫队" class="headerlink" title="思路：莫队"></a>思路：莫队</h2><p>关于莫队，不懂请自行询问<a href="https://www.baidu.com" target="_blank" rel="noopener">度娘</a>。</p>
-<p><del>好吧我还是扔一个<a href="https://baijiahao.baidu.com/s?id=1611364100257622493&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">莫队</a>吧</del></p>
-<p>下面是题解正文：</p>
+        <h2 id="思路：莫队"><a href="#思路：莫队" class="headerlink" title="思路：莫队"></a>思路：莫队</h2><p>很显然，用莫队只能直接统计出区间中各个数出现的次数 cnt，求概率仍需处理。</p>
 <a id="more"></a>
-<p>很显然，用莫队只能直接统计出区间中各个数出现的次数 cnt，求概率仍需处理。</p>
 <p>那么我们先假定当前区间为 [ l，r ]，如果我们只考虑当前数为 x，出现了 cnt[ x ] 次，则数的总个数（区间长度）为</p>
 <script type="math/tex; mode=display">y = r - l + 1</script><p>抽出两个数的可能的事件数量</p>
 <script type="math/tex; mode=display">pos\_sum=C_{y}^{2}=\frac{y\times(y-1)}{2}=\frac{(r-l+1)\times(r-l)}{2}</script><p>抽出两个 x 的可能的事件数量</p>

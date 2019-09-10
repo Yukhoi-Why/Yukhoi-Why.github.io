@@ -57,18 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="莫队算法 - 共 1 篇文章 最短路 - 共 1 篇文章 模板 - 共 5 篇文章 模拟 - 共 1 篇文章">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://Yukhoi-Why.github.io/tags/index.html">
+  <meta name="description" content="RT，并查集（Union Find）的基本模板，背个板子吧！ （题目来源：洛谷 P3367 【模板】并查集）">
+<meta name="keywords" content="模板">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【模板】并查集">
+<meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/10/UnionFind/index.html">
 <meta property="og:site_name" content="Yukhoi">
-<meta property="og:description" content="莫队算法 - 共 1 篇文章 最短路 - 共 1 篇文章 模板 - 共 5 篇文章 模拟 - 共 1 篇文章">
+<meta property="og:description" content="RT，并查集（Union Find）的基本模板，背个板子吧！ （题目来源：洛谷 P3367 【模板】并查集）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-10T05:00:47.521Z">
+<meta property="og:updated_time" content="2019-09-10T05:03:23.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="莫队算法 - 共 1 篇文章 最短路 - 共 1 篇文章 模板 - 共 5 篇文章 模拟 - 共 1 篇文章">
-  <link rel="canonical" href="http://Yukhoi-Why.github.io/tags/">
+<meta name="twitter:title" content="【模板】并查集">
+<meta name="twitter:description" content="RT，并查集（Union Find）的基本模板，背个板子吧！ （题目来源：洛谷 P3367 【模板】并查集）">
+  <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/10/UnionFind/">
 
 
 <script id="page-configurations">
@@ -76,13 +77,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签 | Yukhoi</title>
+  <title>【模板】并查集 | Yukhoi</title>
   
 
 
@@ -204,24 +205,6 @@
 
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 </nav>
   <div class="site-search">
     <div class="popup search-popup">
@@ -259,49 +242,140 @@
             
 
   <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">标签
-
-</h1>
-
-<div class="post-meta">
+      <article itemscope itemtype="http://schema.org/Article">
   
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://Yukhoi-Why.github.io/2019/09/10/UnionFind/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yukhoi">
+      <meta itemprop="description" content="SCPer/灵魂画手">
+      <meta itemprop="image" content="/images/Yukhoi.bmp">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yukhoi">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【模板】并查集
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-10 12:56:57 / 修改时间：13:03:23" itemprop="dateCreated datePublished" datetime="2019-09-10T12:56:57+08:00">2019-09-10</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技巧通识/" itemprop="url" rel="index"><span itemprop="name">技巧通识</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-coffee"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-      
-      <div class="post-body">
-        
-          <p><strong><a href="https://yukhoi-why.github.io/tags/%E8%8E%AB%E9%98%9F%E7%AE%97%E6%B3%95/">莫队算法</a></strong> - 共 <strong>1</strong> 篇文章</p>
-<p><strong><a href="https://yukhoi-why.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</a></strong> - 共 <strong>1</strong> 篇文章</p>
-<p><strong><a href="https://yukhoi-why.github.io/tags/%E6%A8%A1%E6%9D%BF/">模板</a></strong> - 共 <strong>5</strong> 篇文章</p>
-<p><strong><a href="https://yukhoi-why.github.io/tags/%E6%A8%A1%E6%8B%9F/">模拟</a></strong> - 共 <strong>1</strong> 篇文章</p>
-
-        
-      </div>
-      
-      
-      
+        <p>RT，并查集（<code>Union Find</code>）的基本模板，背个板子吧！</p>
+<p>（题目来源：<a href="https://www.luogu.org/problem/P3367" target="_blank" rel="noopener">洛谷 P3367 【模板】并查集</a>）</p>
+<a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, 1 &lt;&lt; 15, stdin), p1 == p2) ? EOF : *p1++)</span></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">15</span>], *p1 = buf, *p2 = buf;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">bool</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>) &#123;</span> x = <span class="number">0</span>; <span class="keyword">bool</span> w = <span class="number">0</span>; <span class="keyword">char</span> ch = <span class="number">0</span>; <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch) &amp;&amp; ch != EOF) w |= ch == <span class="string">'-'</span>, ch = getc();</span><br><span class="line">	<span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>; <span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch)) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch ^ <span class="number">48</span>), ch = getc(); x = w ? -x : x; <span class="keyword">return</span> <span class="number">1</span>; &#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">inline</span> <span class="title">void</span> <span class="title">write</span>(<span class="title">T</span> <span class="title">x</span>) &#123;</span> <span class="keyword">if</span> (!x) &#123; <span class="built_in">puts</span>(<span class="string">"0"</span>); <span class="keyword">return</span>; &#125; <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">'-'</span>), x = -x;</span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">0</span>; <span class="keyword">char</span> ch[<span class="number">41</span>]; <span class="keyword">while</span> (x) ch[++num] = x % <span class="number">10</span> + <span class="number">48</span>, x /= <span class="number">10</span>; <span class="keyword">while</span> (num) <span class="built_in">putchar</span>(ch[num--]); <span class="built_in">puts</span>(<span class="string">""</span>); &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, ord, x, y;</span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">10005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (fa[a] == a) <span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">return</span> fa[a] = find(fa[a]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	read(n), read(m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		fa[i] = i;</span><br><span class="line">	<span class="keyword">while</span> (m--)</span><br><span class="line">	&#123;</span><br><span class="line">		read(ord), read(x), read(y);</span><br><span class="line">		<span class="keyword">if</span> (ord &amp; <span class="number">1</span>) fa[find(x)] = find(y);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">puts</span>(find(x) == find(y) ? <span class="string">"Y"</span> : <span class="string">"N"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Coded by Yukhoi</span></span><br></pre></td></tr></table></figure>
     </div>
-    
 
     
     
     
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/模板/" rel="tag"><i class="fa fa-tag"></i> 模板</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/09/ShuPou/" rel="next" title="【模板】树链剖分">
+                  <i class="fa fa-chevron-left"></i> 【模板】树链剖分
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/10/MST/" rel="prev" title="【模板】最小生成树">
+                  【模板】最小生成树 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
   </div>
 
 
           </div>
           
+    
+    <div class="comments" id="gitalk-container"></div>
+  
 
         </div>
           
@@ -531,6 +605,24 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '616a637f64173fc80764',
+      clientSecret: '366888563ef7a98c7f6e0ba7eac3ef2fcfd292a1',
+      repo: 'yukhoi-why.github.io',
+      owner: 'yukhoi-why',
+      admin: ['yukhoi-why'],
+      id: 'b5d86824092306e705e61a98805fa6f3',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>

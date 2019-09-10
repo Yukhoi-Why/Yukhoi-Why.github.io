@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="RT，求单源最短路的两种算法（Dijkstra和spfa）源代码，背个板子吧！ （spfa算法题目来源：洛谷 P3371 【模板】单源最短路径（弱化版）） （Dijkstra算法题目来源：洛谷 P4779 【模板】单源最短路径（标准版））">
+  <meta name="description" content="RT，单源最短路（Short Path）的两种算法（Dijkstra和spfa）基本模板，背个板子吧！ （spfa算法题目来源：洛谷 P3371 【模板】单源最短路径（弱化版）） （Dijkstra算法题目来源：洛谷 P4779 【模板】单源最短路径（标准版））">
 <meta name="keywords" content="模板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【模板】单源最短路">
-<meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/09/shortpath/index.html">
+<meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/09/ShortPath/index.html">
 <meta property="og:site_name" content="Yukhoi">
-<meta property="og:description" content="RT，求单源最短路的两种算法（Dijkstra和spfa）源代码，背个板子吧！ （spfa算法题目来源：洛谷 P3371 【模板】单源最短路径（弱化版）） （Dijkstra算法题目来源：洛谷 P4779 【模板】单源最短路径（标准版））">
+<meta property="og:description" content="RT，单源最短路（Short Path）的两种算法（Dijkstra和spfa）基本模板，背个板子吧！ （spfa算法题目来源：洛谷 P3371 【模板】单源最短路径（弱化版）） （Dijkstra算法题目来源：洛谷 P4779 【模板】单源最短路径（标准版））">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-09T14:09:52.420Z">
+<meta property="og:updated_time" content="2019-09-10T05:01:07.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【模板】单源最短路">
-<meta name="twitter:description" content="RT，求单源最短路的两种算法（Dijkstra和spfa）源代码，背个板子吧！ （spfa算法题目来源：洛谷 P3371 【模板】单源最短路径（弱化版）） （Dijkstra算法题目来源：洛谷 P4779 【模板】单源最短路径（标准版））">
-  <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/09/shortpath/">
+<meta name="twitter:description" content="RT，单源最短路（Short Path）的两种算法（Dijkstra和spfa）基本模板，背个板子吧！ （spfa算法题目来源：洛谷 P3371 【模板】单源最短路径（弱化版）） （Dijkstra算法题目来源：洛谷 P4779 【模板】单源最短路径（标准版））">
+  <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/09/ShortPath/">
 
 
 <script id="page-configurations">
@@ -247,7 +247,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://Yukhoi-Why.github.io/2019/09/09/shortpath/">
+    <link itemprop="mainEntityOfPage" href="http://Yukhoi-Why.github.io/2019/09/09/ShortPath/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yukhoi">
@@ -275,11 +275,19 @@
                 
               
 
-              <time title="创建时间：2019-09-09 21:46:35 / 修改时间：22:09:52" itemprop="dateCreated datePublished" datetime="2019-09-09T21:46:35+08:00">2019-09-09</time>
+              <time title="创建时间：2019-09-09 21:46:35" itemprop="dateCreated datePublished" datetime="2019-09-09T21:46:35+08:00">2019-09-09</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-10 13:01:07" itemprop="dateModified" datetime="2019-09-10T13:01:07+08:00">2019-09-10</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -315,7 +323,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>RT，求单源最短路的两种算法（<code>Dijkstra</code>和<code>spfa</code>）源代码，背个板子吧！</p>
+        <p>RT，单源最短路（<code>Short Path</code>）的两种算法（<code>Dijkstra</code>和<code>spfa</code>）基本模板，背个板子吧！</p>
 <p>（<code>spfa</code>算法题目来源：<a href="https://www.luogu.org/problem/P3371" target="_blank" rel="noopener">洛谷 P3371 【模板】单源最短路径（弱化版）</a>）</p>
 <p>（<code>Dijkstra</code>算法题目来源：<a href="https://www.luogu.org/problem/P4779" target="_blank" rel="noopener">洛谷 P4779 【模板】单源最短路径（标准版）</a>）</p>
 <a id="more"></a>
@@ -365,7 +373,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/09/shupou/" rel="prev" title="【模板】树链剖分">
+                <a href="/2019/09/09/ShuPou/" rel="prev" title="【模板】树链剖分">
                   【模板】树链剖分 <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -435,7 +443,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,7 +501,7 @@
       <i class="fa fa-user"></i>
     </span>
     <span class="site-uv" title="总访客量">
-      本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次
+      本站访客数 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人次
     </span>
   
     <span class="post-meta-divider">|</span>
@@ -502,7 +510,7 @@
       <i class="fa fa-eye"></i>
     </span>
     <span class="site-pv" title="总访问量">
-      本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+      本站总访问量 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
     </span>
   
 </div>
@@ -627,7 +635,7 @@
       repo: 'yukhoi-why.github.io',
       owner: 'yukhoi-why',
       admin: ['yukhoi-why'],
-      id: 'a9f73e1a59082904ad1038457ae1a931',
+      id: 'd0541bfd9b0c026946fc579d3919ed24',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'

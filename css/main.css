@@ -1234,14 +1234,14 @@ pre .javascript .function {
   opacity: 0;
 }
 .post-body p a {
+  color: #000;
+  border-bottom: none;
+  border-bottom: 1px solid #8d8d8d;
+}
+.post-body p a:hover {
   color: #8ddbfe;
   border-bottom: none;
   border-bottom: 1px solid #8ddbfe;
-}
-.post-body p a:hover {
-  color: #fbb063;
-  border-bottom: none;
-  border-bottom: 1px solid #fbb063;
 }
 .post-button {
   margin-top: 40px;
@@ -1746,7 +1746,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #05712e;
+  background: #fcfe32;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2380,6 +2380,11 @@ ul.breadcrumb li + li:last-child {
 }
 .tag-cloud a:hover {
   color: #222 !important;
+}
+body {
+  background: url("/images/DrawRoom.bmp") no-repeat fixed;
+  background-size: 1585px 905px;
+  opacity: 0.8;
 }
 .header {
   margin: 0 auto;

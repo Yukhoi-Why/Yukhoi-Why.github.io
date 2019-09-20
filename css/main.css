@@ -1746,7 +1746,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #52829c;
+  background: #9390ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2382,18 +2382,21 @@ ul.breadcrumb li + li:last-child {
   color: #222 !important;
 }
 body {
-  background: url("/images/DrawRoom.bmp") no-repeat fixed;
-  background-size: 1585px 905px;
+  background: url("/images/DrawRoom.bmp");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
   opacity: 0.8;
 }
 @media (max-width: 767px) {
-  body {
-    background: url("/images/alive.bmp") no-repeat fixed;
-    opacity: 0.8;
-  }
 }
 .footer-inner {
-  color: #000;
+  color: #fff;
 }
 .header {
   margin: 0 auto;

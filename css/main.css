@@ -1746,7 +1746,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3effb8;
+  background: #52829c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2385,6 +2385,15 @@ body {
   background: url("/images/DrawRoom.bmp") no-repeat fixed;
   background-size: 1585px 905px;
   opacity: 0.8;
+}
+@media (max-width: 767px) {
+  body {
+    background: url("/images/alive.bmp") no-repeat fixed;
+    opacity: 0.8;
+  }
+}
+.footer-inner {
+  color: #000;
 }
 .header {
   margin: 0 auto;

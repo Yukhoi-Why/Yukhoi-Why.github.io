@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>数的原码、反码与补码</title>
+      <link href="/2019/10/17/formcode/"/>
+      <url>/2019/10/17/formcode/</url>
+      
+        <content type="html"><![CDATA[<h2 id="拓展性的前置芝士（跳过不影响阅读）：机器数"><a href="#拓展性的前置芝士（跳过不影响阅读）：机器数" class="headerlink" title="拓展性的前置芝士（跳过不影响阅读）：机器数"></a>拓展性的前置芝士（跳过不影响阅读）：机器数</h2><h3 id="定义及特点"><a href="#定义及特点" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>机器数<code>(Computer Number)</code>是数字在计算机中的二进制表示形式，具有符号数字化和位数受字长限制的特点。</p><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>根据小数点位置固定与否，可分为定点数与浮点数，通常用定点数表示整数，用浮点数表示实数。</p><h3 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h3><p>即本文所讲述的原码、反码与补码。</p><h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><h3 id="定义及特点-1"><a href="#定义及特点-1" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>原码<code>(True Form)</code>是机器数的形式之一，一种数字二进制定点表示方法，具有简单直观但不能直接参与运算的特点</p><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><p>在二进制数值前增加一位符号位，正数为<code>0</code>，负数为<code>1</code>。如，当使用一个字节长表示<code>15</code>时，它的原码为<code>00001111</code>，而使用一个字节长表示<code>-15</code>时，它的原码为<code>10001111</code>。</p><h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><h3 id="定义及特点-2"><a href="#定义及特点-2" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>反码<code>(Inverse Code)</code>是机器数的形式之一，一种数字二进制定点表示方法，通常是由原码求补码或由补码求原码的过渡码。</p><h3 id="表示方法-1"><a href="#表示方法-1" class="headerlink" title="表示方法"></a>表示方法</h3><p>正数的反码同原码，负数的反码，除符号位外，其余各位按位对原码取反。如，当使用一个字节长表示<code>15</code>时，它的原码和反码都为<code>00001111</code>，而使用一个字节长表示<code>-15</code>时，它的原码为<code>10001111</code>，反码为<code>11110000</code>。</p><h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><h3 id="定义及特点-3"><a href="#定义及特点-3" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>补码<code>(two&#39;s complement representation)</code>是机器数的形式之一，一种数字二进制定点表示方法，在计算机中，数值一律用补码表示和存储，因其能将符号位和数值域统一处理。</p><h3 id="表示方法-2"><a href="#表示方法-2" class="headerlink" title="表示方法"></a>表示方法</h3><p>正数的补码同原码，负数的补码，在其反码的基础上再+1。如，当使用一个字节长表示<code>15</code>时，它的原码、反码和补码都为<code>00001111</code>，而使用一个字节长表示<code>-15</code>时，它的原码为<code>10001111</code>，反码为<code>11110000</code>，补码为<code>11110001</code>。</p><h2 id="为什么要使用反码和补码"><a href="#为什么要使用反码和补码" class="headerlink" title="为什么要使用反码和补码"></a>为什么要使用反码和补码</h2><p>因为人脑可以知道第一位是符号位，可以根据符号位对真值的绝对值进行加减乘除，但是对于计算机来说，辨别符号位会让设计电路变得很复杂，于是人们想出了让符号位也参与到运算上来。如，减去一个数，等于加上他的负数，这样，只需要较为简单的电路就可以完成加减乘除等操作。</p><h2 id="互相转换"><a href="#互相转换" class="headerlink" title="互相转换"></a>互相转换</h2><p>由于正数的原码、反码与补码均相同，这里直接讲述负数的转换</p><h3 id="已知原码，求反码与补码"><a href="#已知原码，求反码与补码" class="headerlink" title="已知原码，求反码与补码"></a>已知原码，求反码与补码</h3><p>直接按照反码与补码的表示方法操作即可。</p><h3 id="已知反码，求原码与补码"><a href="#已知反码，求原码与补码" class="headerlink" title="已知反码，求原码与补码"></a>已知反码，求原码与补码</h3><p>可以看出来，反码是原码除符号位外，其余各位取反，那么只要再进行一次取反操作即可得到原码，而补码只需要反码+1即可。</p><p>故，有反码的性质为：对于一个原码 x 的反码 y，将 y 作为原码再进行一次求反码的操作可以得到原码 x。</p><h3 id="已知补码，求原码与反码"><a href="#已知补码，求原码与反码" class="headerlink" title="已知补码，求原码与反码"></a>已知补码，求原码与反码</h3><p>按照求补码的逆过程，应该是补码数值域最低位-1然后除符号位其余各位取反，但对于二进制数来说，先-1后取反与先取反后+1得到的结果相同，故仍然进行取反后+1的操作求原码，反码则直接在补码数值域最低位-1。</p><p>故，有补码的性质为：对于一个原码 x 的补码 y，将 y 作为原码再进行一次求补码的操作可以得到原码 x。</p><h2 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h2><h3 id="0的表示"><a href="#0的表示" class="headerlink" title="0的表示"></a>0的表示</h3><p>特殊地，+0的原码、反码、补码符号位与数值域均为0，-0的原码符号位为1，数值域为0，反码符号位与数值域均为1，补码符号位与数值域均为0。</p><h3 id="关于溢出"><a href="#关于溢出" class="headerlink" title="关于溢出"></a>关于溢出</h3><p>溢出时，正数变负数，负数变正数（即，对溢出的数符号位取反）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧通识 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VS code打造C\C++语言IDE浅谈</title>
       <link href="/2019/09/20/vscodesetting/"/>
       <url>/2019/09/20/vscodesetting/</url>

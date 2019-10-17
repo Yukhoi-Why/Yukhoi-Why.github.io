@@ -57,19 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="思路：O(n)模拟首先我们知道：  不管如何操作，每次操作必然会减少一个数；  最后一次操作所需价值必然是所有数据中最大的那个数。   那么既然无论如何都会有这个结果，从头到尾扫一遍，将前后较大的数累加即可得到答案">
-<meta name="keywords" content="模拟">
+  <meta name="description" content="拓展性的前置芝士（跳过不影响阅读）：机器数定义及特点机器数(Computer Number)是数字在计算机中的二进制表示形式，具有符号数字化和位数受字长限制的特点。 分类根据小数点位置固定与否，可分为定点数与浮点数，通常用定点数表示整数，用浮点数表示实数。 形式即本文所讲述的原码、反码与补码。 原码定义及特点原码(True Form)是机器数的形式之一，一种数字二进制定点表示方法，具有简单直观但不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【[BOI2007]Sequence 序列问题】解题报告">
-<meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/04/luogu4393/index.html">
+<meta property="og:title" content="数的原码、反码与补码">
+<meta property="og:url" content="http://Yukhoi-Why.github.io/2019/10/17/formcode/index.html">
 <meta property="og:site_name" content="Yukhoi">
-<meta property="og:description" content="思路：O(n)模拟首先我们知道：  不管如何操作，每次操作必然会减少一个数；  最后一次操作所需价值必然是所有数据中最大的那个数。   那么既然无论如何都会有这个结果，从头到尾扫一遍，将前后较大的数累加即可得到答案">
+<meta property="og:description" content="拓展性的前置芝士（跳过不影响阅读）：机器数定义及特点机器数(Computer Number)是数字在计算机中的二进制表示形式，具有符号数字化和位数受字长限制的特点。 分类根据小数点位置固定与否，可分为定点数与浮点数，通常用定点数表示整数，用浮点数表示实数。 形式即本文所讲述的原码、反码与补码。 原码定义及特点原码(True Form)是机器数的形式之一，一种数字二进制定点表示方法，具有简单直观但不">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-17T14:13:36.599Z">
+<meta property="og:updated_time" content="2019-10-17T03:45:13.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【[BOI2007]Sequence 序列问题】解题报告">
-<meta name="twitter:description" content="思路：O(n)模拟首先我们知道：  不管如何操作，每次操作必然会减少一个数；  最后一次操作所需价值必然是所有数据中最大的那个数。   那么既然无论如何都会有这个结果，从头到尾扫一遍，将前后较大的数累加即可得到答案">
-  <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/04/luogu4393/">
+<meta name="twitter:title" content="数的原码、反码与补码">
+<meta name="twitter:description" content="拓展性的前置芝士（跳过不影响阅读）：机器数定义及特点机器数(Computer Number)是数字在计算机中的二进制表示形式，具有符号数字化和位数受字长限制的特点。 分类根据小数点位置固定与否，可分为定点数与浮点数，通常用定点数表示整数，用浮点数表示实数。 形式即本文所讲述的原码、反码与补码。 原码定义及特点原码(True Form)是机器数的形式之一，一种数字二进制定点表示方法，具有简单直观但不">
+  <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/10/17/formcode/">
 
 
 <script id="page-configurations">
@@ -83,7 +82,7 @@
   };
 </script>
 
-  <title>【[BOI2007]Sequence 序列问题】解题报告 | Yukhoi</title>
+  <title>数的原码、反码与补码 | Yukhoi</title>
   
 
 
@@ -247,7 +246,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://Yukhoi-Why.github.io/2019/09/04/luogu4393/">
+    <link itemprop="mainEntityOfPage" href="http://Yukhoi-Why.github.io/2019/10/17/formcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yukhoi">
@@ -259,7 +258,7 @@
       <meta itemprop="name" content="Yukhoi">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【[BOI2007]Sequence 序列问题】解题报告
+        <h1 class="post-title" itemprop="name headline">数的原码、反码与补码
 
           
         </h1>
@@ -275,19 +274,11 @@
                 
               
 
-              <time title="创建时间：2019-09-04 20:52:42" itemprop="dateCreated datePublished" datetime="2019-09-04T20:52:42+08:00">2019-09-04</time>
+              <time title="创建时间：2019-10-17 11:01:23 / 修改时间：11:45:13" itemprop="dateCreated datePublished" datetime="2019-10-17T11:01:23+08:00">2019-10-17</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-17 22:13:36" itemprop="dateModified" datetime="2019-09-17T22:13:36+08:00">2019-09-17</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -296,7 +287,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题解/" itemprop="url" rel="index"><span itemprop="name">题解</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技巧通识/" itemprop="url" rel="index"><span itemprop="name">技巧通识</span></a></span>
 
                 
                 
@@ -323,18 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="思路：O-n-模拟"><a href="#思路：O-n-模拟" class="headerlink" title="思路：O(n)模拟"></a>思路：O(n)模拟</h2><p>首先我们知道：</p>
-<ol>
-<li><p>不管如何操作，每次操作必然会减少一个数；</p>
-</li>
-<li><p>最后一次操作所需价值必然是所有数据中最大的那个数。</p>
-</li>
-</ol>
-<p>那么既然无论如何都会有这个结果，从头到尾扫一遍，将前后较大的数累加即可得到答案</p>
-<a id="more"></a>
-<p>代码实现如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">	<span class="keyword">if</span> (a[i] &gt; a[i - <span class="number">1</span>] &amp;&amp; i != <span class="number">1</span>) ans += a[i];</span><br><span class="line">	<span class="keyword">if</span> (a[i] &gt;= a[i + <span class="number">1</span>] &amp;&amp; i != n) ans += a[i];</span><br><span class="line">    <span class="comment">//前一个if不用等号是为了避免重复，自己想想就知道是怎么回事了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后，再在这核心代码前后，加上各种头文件、读优、输优等<del>看起来牛逼用起来舒适便捷的</del>模板和数据读入的循环、main函数的格式<del>（白痴都知道）</del>即可。</p>
-<h3 id="完整代码如下："><a href="#完整代码如下：" class="headerlink" title="完整代码如下："></a>完整代码如下：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">ll n, a[<span class="number">1000005</span>], ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123; ll X = <span class="number">0</span>, w = <span class="number">0</span>; <span class="keyword">char</span> ch = <span class="number">0</span>; <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch)) w |= ch == <span class="string">'-'</span>, ch = getchar();</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch)) X = (X &lt;&lt; <span class="number">3</span>) + (X &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="number">48</span>), ch = getchar(); <span class="keyword">return</span> w ? -X : X; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123; ll num = <span class="number">0</span>; <span class="keyword">char</span> ch[<span class="number">20</span>]; <span class="keyword">if</span> (!x) ch[++num] = <span class="string">'0'</span>;</span><br><span class="line">	<span class="keyword">while</span> (x) ch[++num] = (x % <span class="number">10</span>) + <span class="number">48</span>, x /= <span class="number">10</span>; <span class="keyword">while</span> (num) <span class="built_in">putchar</span>(ch[num--]); <span class="built_in">puts</span>(<span class="string">""</span>); &#125;</span><br><span class="line"><span class="comment">//各种看起来牛逼用起来舒适便捷的（划掉）模板</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	n = read();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		a[i] = read();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a[i] &gt; a[i - <span class="number">1</span>] &amp;&amp; i != <span class="number">1</span>) ans += a[i];</span><br><span class="line">		<span class="keyword">if</span> (a[i] &gt;= a[i + <span class="number">1</span>] &amp;&amp; i != n) ans += a[i];</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//核心循环</span></span><br><span class="line">	write(ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Coded by Yukhoi</span></span><br></pre></td></tr></table></figure>
+        <h2 id="拓展性的前置芝士（跳过不影响阅读）：机器数"><a href="#拓展性的前置芝士（跳过不影响阅读）：机器数" class="headerlink" title="拓展性的前置芝士（跳过不影响阅读）：机器数"></a>拓展性的前置芝士（跳过不影响阅读）：机器数</h2><h3 id="定义及特点"><a href="#定义及特点" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>机器数<code>(Computer Number)</code>是数字在计算机中的二进制表示形式，具有符号数字化和位数受字长限制的特点。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>根据小数点位置固定与否，可分为定点数与浮点数，通常用定点数表示整数，用浮点数表示实数。</p>
+<h3 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h3><p>即本文所讲述的原码、反码与补码。</p>
+<h2 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h2><h3 id="定义及特点-1"><a href="#定义及特点-1" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>原码<code>(True Form)</code>是机器数的形式之一，一种数字二进制定点表示方法，具有简单直观但不能直接参与运算的特点</p>
+<h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><p>在二进制数值前增加一位符号位，正数为<code>0</code>，负数为<code>1</code>。如，当使用一个字节长表示<code>15</code>时，它的原码为<code>00001111</code>，而使用一个字节长表示<code>-15</code>时，它的原码为<code>10001111</code>。</p>
+<h2 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h2><h3 id="定义及特点-2"><a href="#定义及特点-2" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>反码<code>(Inverse Code)</code>是机器数的形式之一，一种数字二进制定点表示方法，通常是由原码求补码或由补码求原码的过渡码。</p>
+<h3 id="表示方法-1"><a href="#表示方法-1" class="headerlink" title="表示方法"></a>表示方法</h3><p>正数的反码同原码，负数的反码，除符号位外，其余各位按位对原码取反。如，当使用一个字节长表示<code>15</code>时，它的原码和反码都为<code>00001111</code>，而使用一个字节长表示<code>-15</code>时，它的原码为<code>10001111</code>，反码为<code>11110000</code>。</p>
+<h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><h3 id="定义及特点-3"><a href="#定义及特点-3" class="headerlink" title="定义及特点"></a>定义及特点</h3><p>补码<code>(two&#39;s complement representation)</code>是机器数的形式之一，一种数字二进制定点表示方法，在计算机中，数值一律用补码表示和存储，因其能将符号位和数值域统一处理。</p>
+<h3 id="表示方法-2"><a href="#表示方法-2" class="headerlink" title="表示方法"></a>表示方法</h3><p>正数的补码同原码，负数的补码，在其反码的基础上再+1。如，当使用一个字节长表示<code>15</code>时，它的原码、反码和补码都为<code>00001111</code>，而使用一个字节长表示<code>-15</code>时，它的原码为<code>10001111</code>，反码为<code>11110000</code>，补码为<code>11110001</code>。</p>
+<h2 id="为什么要使用反码和补码"><a href="#为什么要使用反码和补码" class="headerlink" title="为什么要使用反码和补码"></a>为什么要使用反码和补码</h2><p>因为人脑可以知道第一位是符号位，可以根据符号位对真值的绝对值进行加减乘除，但是对于计算机来说，辨别符号位会让设计电路变得很复杂，于是人们想出了让符号位也参与到运算上来。如，减去一个数，等于加上他的负数，这样，只需要较为简单的电路就可以完成加减乘除等操作。</p>
+<h2 id="互相转换"><a href="#互相转换" class="headerlink" title="互相转换"></a>互相转换</h2><p>由于正数的原码、反码与补码均相同，这里直接讲述负数的转换</p>
+<h3 id="已知原码，求反码与补码"><a href="#已知原码，求反码与补码" class="headerlink" title="已知原码，求反码与补码"></a>已知原码，求反码与补码</h3><p>直接按照反码与补码的表示方法操作即可。</p>
+<h3 id="已知反码，求原码与补码"><a href="#已知反码，求原码与补码" class="headerlink" title="已知反码，求原码与补码"></a>已知反码，求原码与补码</h3><p>可以看出来，反码是原码除符号位外，其余各位取反，那么只要再进行一次取反操作即可得到原码，而补码只需要反码+1即可。</p>
+<p>故，有反码的性质为：对于一个原码 x 的反码 y，将 y 作为原码再进行一次求反码的操作可以得到原码 x。</p>
+<h3 id="已知补码，求原码与反码"><a href="#已知补码，求原码与反码" class="headerlink" title="已知补码，求原码与反码"></a>已知补码，求原码与反码</h3><p>按照求补码的逆过程，应该是补码数值域最低位-1然后除符号位其余各位取反，但对于二进制数来说，先-1后取反与先取反后+1得到的结果相同，故仍然进行取反后+1的操作求原码，反码则直接在补码数值域最低位-1。</p>
+<p>故，有补码的性质为：对于一个原码 x 的补码 y，将 y 作为原码再进行一次求补码的操作可以得到原码 x。</p>
+<h2 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h2><h3 id="0的表示"><a href="#0的表示" class="headerlink" title="0的表示"></a>0的表示</h3><p>特殊地，+0的原码、反码、补码符号位与数值域均为0，-0的原码符号位为1，数值域为0，反码符号位与数值域均为1，补码符号位与数值域均为0。</p>
+<h3 id="关于溢出"><a href="#关于溢出" class="headerlink" title="关于溢出"></a>关于溢出</h3><p>溢出时，正数变负数，负数变正数（即，对溢出的数符号位取反）。</p>
+
     </div>
 
     
@@ -344,30 +342,21 @@
       
 
       <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/模拟/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
-            
-          </div>
-        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/09/20/vscodesetting/" rel="next" title="VS code打造C\C++语言IDE浅谈">
+                  <i class="fa fa-chevron-left"></i> VS code打造C\C++语言IDE浅谈
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/04/luogu2243/" rel="prev" title="【洛谷 P2243 电路维修】解题报告">
-                  【洛谷 P2243 电路维修】解题报告 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -419,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路：O-n-模拟"><span class="nav-number">1.</span> <span class="nav-text">思路：O(n)模拟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码如下："><span class="nav-number">1.1.</span> <span class="nav-text">完整代码如下：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展性的前置芝士（跳过不影响阅读）：机器数"><span class="nav-number">1.</span> <span class="nav-text">拓展性的前置芝士（跳过不影响阅读）：机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义及特点"><span class="nav-number">1.1.</span> <span class="nav-text">定义及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">1.2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#形式"><span class="nav-number">1.3.</span> <span class="nav-text">形式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原码"><span class="nav-number">2.</span> <span class="nav-text">原码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义及特点-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示方法"><span class="nav-number">2.2.</span> <span class="nav-text">表示方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反码"><span class="nav-number">3.</span> <span class="nav-text">反码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义及特点-2"><span class="nav-number">3.1.</span> <span class="nav-text">定义及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示方法-1"><span class="nav-number">3.2.</span> <span class="nav-text">表示方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补码"><span class="nav-number">4.</span> <span class="nav-text">补码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义及特点-3"><span class="nav-number">4.1.</span> <span class="nav-text">定义及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示方法-2"><span class="nav-number">4.2.</span> <span class="nav-text">表示方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用反码和补码"><span class="nav-number">5.</span> <span class="nav-text">为什么要使用反码和补码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互相转换"><span class="nav-number">6.</span> <span class="nav-text">互相转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#已知原码，求反码与补码"><span class="nav-number">6.1.</span> <span class="nav-text">已知原码，求反码与补码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已知反码，求原码与补码"><span class="nav-number">6.2.</span> <span class="nav-text">已知反码，求原码与补码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已知补码，求原码与反码"><span class="nav-number">6.3.</span> <span class="nav-text">已知补码，求原码与反码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊情况"><span class="nav-number">7.</span> <span class="nav-text">特殊情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0的表示"><span class="nav-number">7.1.</span> <span class="nav-text">0的表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于溢出"><span class="nav-number">7.2.</span> <span class="nav-text">关于溢出</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -656,7 +645,7 @@
       repo: 'yukhoi-why.github.io',
       owner: 'yukhoi-why',
       admin: ['yukhoi-why'],
-      id: 'a02e963720422d19cf1ac16f23a5f3b4',
+      id: 'c628b89af141df31afddd2508651572d',
       enableHotKey: true
         language: 'zh-CN',
       

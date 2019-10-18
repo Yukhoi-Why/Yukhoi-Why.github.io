@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="思路：数论因式分解看到给出一个不定方程： \frac{1}{x}+\frac{1}{y}=\frac{1}{n!}那么我们显然要将其处理一下 首先通分： \frac{x+y}{xy}=\frac{1}{n!}然后去分母： (x+y)\times (n!)=xy后续请自行阅读：">
+  <meta name="description" content="思路：数论因式分解看到给出一个不定方程： \frac{1}{x}+\frac{1}{y}=\frac{1}{n!}那么我们显然要将其处理一下">
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【洛谷 P4167 樱花】解题报告">
 <meta property="og:url" content="http://Yukhoi-Why.github.io/2019/09/19/luogu4167/index.html">
 <meta property="og:site_name" content="Yukhoi&#39;s Blog">
-<meta property="og:description" content="思路：数论因式分解看到给出一个不定方程： \frac{1}{x}+\frac{1}{y}=\frac{1}{n!}那么我们显然要将其处理一下 首先通分： \frac{x+y}{xy}=\frac{1}{n!}然后去分母： (x+y)\times (n!)=xy后续请自行阅读：">
+<meta property="og:description" content="思路：数论因式分解看到给出一个不定方程： \frac{1}{x}+\frac{1}{y}=\frac{1}{n!}那么我们显然要将其处理一下">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-22T05:49:50.051Z">
+<meta property="og:updated_time" content="2019-10-18T00:50:14.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【洛谷 P4167 樱花】解题报告">
-<meta name="twitter:description" content="思路：数论因式分解看到给出一个不定方程： \frac{1}{x}+\frac{1}{y}=\frac{1}{n!}那么我们显然要将其处理一下 首先通分： \frac{x+y}{xy}=\frac{1}{n!}然后去分母： (x+y)\times (n!)=xy后续请自行阅读：">
+<meta name="twitter:description" content="思路：数论因式分解看到给出一个不定方程： \frac{1}{x}+\frac{1}{y}=\frac{1}{n!}那么我们显然要将其处理一下">
   <link rel="canonical" href="http://Yukhoi-Why.github.io/2019/09/19/luogu4167/">
 
 
@@ -286,7 +286,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-22 13:49:50" itemprop="dateModified" datetime="2019-09-22T13:49:50+08:00">2019-09-22</time>
+                <time title="修改时间：2019-10-18 08:50:14" itemprop="dateModified" datetime="2019-10-18T08:50:14+08:00">2019-10-18</time>
               </span>
             
           
@@ -325,11 +325,10 @@
       
         <h2 id="思路：数论因式分解"><a href="#思路：数论因式分解" class="headerlink" title="思路：数论因式分解"></a>思路：数论因式分解</h2><p>看到给出一个不定方程：</p>
 <script type="math/tex; mode=display">\frac{1}{x}+\frac{1}{y}=\frac{1}{n!}</script><p>那么我们显然要将其处理一下</p>
+<a id="more"></a>
 <p>首先通分：</p>
 <script type="math/tex; mode=display">\frac{x+y}{xy}=\frac{1}{n!}</script><p>然后去分母：</p>
-<script type="math/tex; mode=display">(x+y)\times (n!)=xy</script><p>后续请自行阅读：</p>
-<a id="more"></a>
-<script type="math/tex; mode=display">x\times (n!)+y\times (n!)=xy</script><script type="math/tex; mode=display">x\times (n!)=(x-n!)\times y</script><script type="math/tex; mode=display">y=\frac{x\times (n!)}{x-n!}</script><p>同理得：</p>
+<script type="math/tex; mode=display">(x+y)\times (n!)=xy</script><script type="math/tex; mode=display">x\times (n!)+y\times (n!)=xy</script><script type="math/tex; mode=display">x\times (n!)=(x-n!)\times y</script><script type="math/tex; mode=display">y=\frac{x\times (n!)}{x-n!}</script><p>同理得：</p>
 <script type="math/tex; mode=display">x=\frac{y\times (n!)}{y-n!}</script><p>又因为</p>
 <script type="math/tex; mode=display">x,y\in N^*</script><p>所以</p>
 <script type="math/tex; mode=display">x>n!\text{ 且 }y>n!</script><p>那么设：</p>

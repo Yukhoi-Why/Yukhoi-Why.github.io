@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>快速幂算法略谈</title>
+    <url>/2021/10/27/fastpow/</url>
+    <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>我们知道，C语言中，要计算某个数的高次幂，比如x的n次幂，有两种相当简单的方法</p>
+<p>其一，就是利用循环，暴力循环n次，每次对结果乘上x，复杂度<code>O(n)</code></p>
+<p>其二，则是引用<code>math.h</code>头文件，利用自带的pow函数进行计算</p>
+<p>但是我们也知道，这两种算法都较慢，在n相当大时，很容易超时</p>
+<p>由此我们就需要一个更优的算法，也即本文所述的快速幂算法</p>
+<span id="more"></span>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>以13的59次幂为例，有如下等式</p>
+<script type="math/tex; mode=display">59=2^5+2^4+2^3+2^1+2^0</script><p>也即</p>
+<script type="math/tex; mode=display">(59)_{10}=(111011)_2</script>]]></content>
+  </entry>
+  <entry>
+    <title>Hello, the cruel World</title>
+    <url>/2021/10/26/hello-world/</url>
+    <content><![CDATA[<h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><p>随缘更新，请见谅</p>
+]]></content>
+  </entry>
+</search>

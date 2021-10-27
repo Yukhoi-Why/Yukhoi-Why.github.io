@@ -12,6 +12,9 @@
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>以13的59次幂为例，有如下等式</p>
 <script type="math/tex; mode=display">59=2^5+2^4+2^3+2^1+2^0</script><p>也即</p>
 <script type="math/tex; mode=display">(59)_{10}=(111011)_2</script>]]></content>
+      <tags>
+        <tag>算法; 快速幂</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello, the cruel World</title>

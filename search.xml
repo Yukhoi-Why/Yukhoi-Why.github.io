@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>快速幂算法略谈</title>
-    <url>/2021/10/27/fastpow/</url>
+    <title>位运算基本知识浅谈</title>
+    <url>/2021/10/28/Bitwise-Operation/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>我们知道，计算机中所有数都是二进制存储的</p>
+<p>位运算就是对正数的二进制位进行的运算</p>
+<span id="more"></span>
+<h1 id="运算说明"><a href="#运算说明" class="headerlink" title="运算说明"></a>运算说明</h1><p>首先明确一点，位运算是对正数进行的运算，所以下面的各语句中，变量类型均默认定义为<code>int</code></p>
+<h2 id="按位取反not"><a href="#按位取反not" class="headerlink" title="按位取反not"></a>按位取反not</h2><p>表达式<code>~a</code>，按二进制位运算，将每一位取反</p>
+<p>简单来说，即“0变1，1变0”</p>
+<h2 id="左移shl"><a href="#左移shl" class="headerlink" title="左移shl"></a>左移shl</h2><p>表达式<code>a &lt;&lt; n</code>，其中<code>n</code>为正整数，表示在二进制下，将<code>a</code>左移<code>n</code>位（在<code>a</code>的二进制表示后面添上<code>n</code>个0）</p>
+<p>实际上等于$a*2^n$</p>
+<h2 id="右移shr"><a href="#右移shr" class="headerlink" title="右移shr"></a>右移shr</h2><p>表达式<code>a &gt;&gt; n</code>，其中<code>n</code>为正整数，表示在二进制下，将<code>a</code>右移<code>n</code>位（将<code>a</code>的二进制表示后面<code>n</code>位舍弃）</p>
+<p>实际上等于$\lfloor{\frac{a}{2^n}}\rfloor$</p>
+<h2 id="按位与and"><a href="#按位与and" class="headerlink" title="按位与and"></a>按位与and</h2><p>表达式<code>a &amp; b</code>，按二进制位运算，位数较小的补齐前导0，对于每一位，二进制表示均为1，则结果为1，否则为0</p>
+<p>简单来说，即“有0得0，全1得1”</p>
+<h2 id="按位或or"><a href="#按位或or" class="headerlink" title="按位或or"></a>按位或or</h2><p>表达式<code>a | b</code>，按二进制位运算，位数较小的补齐前导0，对于每一位，二进制表示均为0，则结果为0，否则为1</p>
+<p>简单来说，即“有1得1，全0得0”</p>
+<h2 id="按位异或xor"><a href="#按位异或xor" class="headerlink" title="按位异或xor"></a>按位异或xor</h2><p>表达式<code>a ^ b</code>，按二进制位运算，位数较小的补齐前导0，对于每一位，二进制表示两变量相异为1，相同为0</p>
+<p>简单来说，即“相同得0，相异得1”</p>
+<h3 id="异或的逆运算"><a href="#异或的逆运算" class="headerlink" title="异或的逆运算"></a>异或的逆运算</h3><p>异或的逆运算是它本身，也就是说，一个值两次异或同一个值，最后得到它本身，即<code>a == a ^ b ^ b</code></p>
+<h3 id="异或的简单运用"><a href="#异或的简单运用" class="headerlink" title="异或的简单运用"></a>异或的简单运用</h3><p>由<code>“异或的逆运算是它本身”</code>，我们可以发散思维，得出异或的一些简单运用</p>
+<h4 id="简单加密"><a href="#简单加密" class="headerlink" title="简单加密"></a>简单加密</h4><p>如果你得到一个整数作为明文，想要加密，最简单的方法就是选取另一个整数作为密钥，对明文和密钥进行异或运算，结果即为得到的暗文，而接收暗文的人只需手持一样的密钥，将暗文与密钥进行异或运算，即可重新得到明文</p>
+<h4 id="（似乎没有什么用的）-不需要中间变量的交换过程"><a href="#（似乎没有什么用的）-不需要中间变量的交换过程" class="headerlink" title="（似乎没有什么用的） 不需要中间变量的交换过程"></a><del>（似乎没有什么用的）</del> 不需要中间变量的交换过程</h4><p>现在，有两个变量，<code>a</code>与<code>b</code>，需要将两个变量的值交换，又不想定义中间变量，那可以考虑用异或运算进行交换，代码是这样的：<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a ^= b;</span><br><span class="line">b = a ^ b;</span><br><span class="line">a ^= b;</span><br></pre></td></tr></table></figure><br>现在来考虑这段代码执行交换的合理性，之前提到过，<code>a == a ^ b ^ b</code>，那么第一行中<code>a ^= b</code>后<code>a</code>的值变为<code>a ^ b</code>，再到第二行执行时，相当于<code>b</code>的值被重新赋值为<code>a ^ b ^ b</code>，也就是<code>a</code>变量的初值，最后到第三行执行时，<code>a</code>的值则被赋值为<code>a ^ b ^ a</code>，也就成了<code>b</code>变量的初值，完整实现了交换功能</p>
+<p>小拓展：</p>
+<p>上述交换功能的本质是对于互逆运算的如下利用：</p>
+<p>定义符号$与#，使之互为逆运算</p>
+<p>对于如下代码块<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a &lt;- a # b</span><br><span class="line">b &lt;- a $ b</span><br><span class="line">a &lt;- a $ b</span><br></pre></td></tr></table></figure><br>执行第一句后<code>a</code>的值变为<code>a # b</code>，第二句执行时<code>b</code>的值被赋为<code>a # b $ b</code>，由于$与#互逆，则<code>a # b $ b = a</code>，所以<code>b</code>的值被赋为<code>a</code>变量的初值，同理，第三行使<code>a</code>被赋值为<code>b</code>变量的初值</p>
+<p>正因为异或运算的逆运算是其本身，才会有看起来这样离谱的交换代码</p>
+<p>同样是这个本质，加减互为逆运算，用起来就不会像异或这样看起来十分离谱<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a += b;</span><br><span class="line">b = a - b;</span><br><span class="line">a -= b;</span><br></pre></td></tr></table></figure></p>
+<h1 id="运算优先级"><a href="#运算优先级" class="headerlink" title="运算优先级"></a>运算优先级</h1><p>所有运算后赋值操作&lt;或&lt;异或&lt;与&lt;左移=右移&lt;其他所有除括号以外的运算&lt;取反&lt;括号</p>
+<p><del>括号yyds</del></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文简单陈述了C语言基础知识位运算，并对异或运算进行了小小的拓展，尽可能浅显地使阅读本文的诸君理解位运算，望共勉之</p>
+<p>P.S. 笔者如有陈述不周之处还望斧正</p>
+]]></content>
+      <tags>
+        <tag>初学者</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速幂算法浅谈</title>
+    <url>/2021/10/27/Quickpow/</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>快速幂是一种简单有效的高次幂算法，可以在$O(log\ n)$的时间里快速计算高次幂</p>
-<p>快速幂是一个常见而且应用广泛的算法，在多种境地都能见到它的身影</p>
+<p>它是一种常见而且应用广泛的算法，在多种境地都能见到它的身影</p>
 <span id="more"></span>
 <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>我们知道，C语言中，要计算某个数的高次幂，比如x的n次幂，有两种相当简单的方法</p>
 <p>其一，就是利用循环，暴力循环n次，每次对结果乘上x，复杂度$O(n)$</p>
@@ -29,7 +68,8 @@
 <p>$$13^{59}=13*(13)^2*(13)^8*(13)^{16}*(13)^{32}$$</p>
 <p>可以得到平方底数得到新底数计算快速幂的方法</p>
 <p>代码实现如下<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quick_pow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) res *= x;    <span class="comment">// n在二进制下末位为1</span></span><br><span class="line">        x *= x;                 <span class="comment">// 底数平方</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;                <span class="comment">// n 右移一位</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>快速幂算法是一种简单而高效的算法，本文简单阐述了其原理及实现，而快速幂仅仅只是众多令人着迷的算法中的一个，还希望与阅读本文的诸君共勉，一同去探索无尽的算法世界。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>快速幂算法是一种简单而高效的算法，本文简单陈述了其原理及实现，而快速幂仅仅只是众多令人着迷的算法中的一个，还希望与阅读本文的诸君共勉，一同去探索无尽的算法世界。</p>
+<p>P.S. 笔者如有陈述不周之处还望斧正</p>
 ]]></content>
       <tags>
         <tag>算法</tag>
@@ -38,7 +78,7 @@
   </entry>
   <entry>
     <title>Hello, the cruel World</title>
-    <url>/2021/10/26/hello-world/</url>
+    <url>/2021/10/26/Hello-World/</url>
     <content><![CDATA[<h1 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h1><p>随缘更新，请见谅</p>
 ]]></content>
   </entry>

@@ -3,19 +3,43 @@
   <entry>
     <title>快速幂算法略谈</title>
     <url>/2021/10/27/fastpow/</url>
-    <content><![CDATA[<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>我们知道，C语言中，要计算某个数的高次幂，比如x的n次幂，有两种相当简单的方法</p>
-<p>其一，就是利用循环，暴力循环n次，每次对结果乘上x，复杂度<code>O(n)</code></p>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>快速幂是一种简单有效的高次幂算法，可以在$O(log\ n)$的时间里快速计算高次幂</p>
+<p>快速幂是一个常见而且应用广泛的算法，在多种境地都能见到它的身影</p>
+<span id="more"></span>
+<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>我们知道，C语言中，要计算某个数的高次幂，比如x的n次幂，有两种相当简单的方法</p>
+<p>其一，就是利用循环，暴力循环n次，每次对结果乘上x，复杂度$O(n)$</p>
 <p>其二，则是引用<code>math.h</code>头文件，利用自带的pow函数进行计算</p>
 <p>但是我们也知道，这两种算法都较慢，在n相当大时，很容易超时</p>
 <p>由此我们就需要一个更优的算法，也即本文所述的快速幂算法</p>
-<span id="more"></span>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>以13的59次幂为例，有如下等式<br>$$59=2^5+2^4+2^3+2^1+2^0$$<br>也即<br>$$(59)_{10}=(111011)_2$$</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>以13的59次幂为例，对于指数59，有如下等式</p>
+<p>$$59=2^5+2^4+2^3+2^1+2^0$$</p>
+<p>也即</p>
+<p>$$(59)_{10}=(111011)_2$$</p>
+<p>因此</p>
+<p>$$13^{59}=(((((13)^2*13)^2*13)^2)^2*13)^2*13$$</p>
+<p>也可写作</p>
+<p>$$13^{59}=13*(13)^2*(13)^8*(13)^{16}*(13)^{32}$$</p>
+<p>快速幂的思路，就是将较大的指数二分为多个较小的指数之和，进而计算出完整的高次幂</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>由等式</p>
+<p>$$13^{59}=(((((13)^2*13)^2*13)^2)^2*13)^2*13$$</p>
+<p>很容易想到递归方程如下</p>
+<p>$$<br>x^n=\begin{cases}<br>    x^{n-1}*a, &amp; \text{if n % 2 != 0}<br>    \\<br>    (x^{n/2})^2, &amp; \text{if n % 2 == 0 &amp;&amp; n != 0}<br>    \\<br>    1, &amp; \text{if n == 0}<br>    \end{cases}<br>$$</p>
+<p>而其代码实现也非常简单，只需按照递归方程写即可，如下<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quick_pow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;                           <span class="comment">// 递归出口</span></span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> != <span class="number">0</span>) <span class="keyword">return</span> quick_pow(x, n - <span class="number">1</span>) * x; <span class="comment">// n为奇数</span></span><br><span class="line">    <span class="keyword">int</span> tmp = quick_pow(x, n / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> tmp * tmp;                               <span class="comment">// n为偶数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这其中，<code>tmp</code>变量不可省略，否则在最后一个<code>return</code>处会因调用两次<code>quick_pow</code>从而把复杂度退化回$O(n)$</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>由等式</p>
+<p>$$13^{59}=13*(13)^2*(13)^8*(13)^{16}*(13)^{32}$$</p>
+<p>可以得到平方底数得到新底数计算快速幂的方法</p>
+<p>代码实现如下<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quick_pow</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) res *= x;    <span class="comment">// n在二进制下末位为1</span></span><br><span class="line">        x *= x;                 <span class="comment">// 底数平方</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;                <span class="comment">// n 右移一位</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>快速幂算法是一种简单而高效的算法，本文简单阐述了其原理及实现，而快速幂仅仅只是众多令人着迷的算法中的一个，还希望与阅读本文的诸君共勉，一同去探索无尽的算法世界。</p>
 ]]></content>
+      <tags>
+        <tag>算法</tag>
+        <tag>快速幂</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello, the cruel World</title>
     <url>/2021/10/26/hello-world/</url>
-    <content><![CDATA[<h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><p>随缘更新，请见谅</p>
+    <content><![CDATA[<h1 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h1><p>随缘更新，请见谅</p>
 ]]></content>
   </entry>
 </search>

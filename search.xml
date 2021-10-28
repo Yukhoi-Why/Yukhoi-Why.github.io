@@ -34,6 +34,9 @@
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文简单陈述了C语言基础知识位运算，并对异或运算进行了小小的拓展，尽可能浅显地使阅读本文的诸君理解位运算，望共勉之</p>
 <p>P.S. 笔者如有陈述不周之处还望斧正</p>
 ]]></content>
+      <categories>
+        <category>C语言基础</category>
+      </categories>
       <tags>
         <tag>初学者</tag>
         <tag>基础</tag>
@@ -71,6 +74,9 @@
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>快速幂算法是一种简单而高效的算法，本文简单陈述了其原理及实现，而快速幂仅仅只是众多令人着迷的算法中的一个，还希望与阅读本文的诸君共勉，一同去探索无尽的算法世界。</p>
 <p>P.S. 笔者如有陈述不周之处还望斧正</p>
 ]]></content>
+      <categories>
+        <category>算法学习笔记</category>
+      </categories>
       <tags>
         <tag>算法</tag>
         <tag>快速幂</tag>

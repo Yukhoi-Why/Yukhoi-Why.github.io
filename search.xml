@@ -43,6 +43,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello, the cruel World</title>
+    <url>/2021/10/26/Hello-World/</url>
+    <content><![CDATA[<h1 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h1><p>随缘更新，请见谅</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>素数筛算法浅谈</title>
+    <url>/2021/11/02/prime/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>素数筛是一种快速筛选出2~n（设给定的上界为n）的算法，在许多的数论算法中都有较为广泛的应用</p>
+<span id="more"></span>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="埃氏筛"><a href="#埃氏筛" class="headerlink" title="埃氏筛"></a>埃氏筛</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>埃氏筛是一种朴素的筛素数的算法，由希腊数学家埃拉托斯特尼所提出，因而得名。它的算法思想是这样的：要得到自然数n以内的全部素数，必须把不大于$\sqrt{n}$的所有素数的倍数剔除，剩下的就是素数。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>它实现的思路也相对简单</p>
+<p>以<code>n = 20</code>为例，对于序列</p>
+<p>$$2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20$$</p>
+<p>从前往后遍历，第一个数是2，将其列为素数，并删去序列中2的所有倍数，余下的数组成新的序列</p>
+<p>$$2,3,5,7,9,11,13,15,17,19$$</p>
+<p>而后遍历至3，将其列为素数，并删去序列中3的所有倍数……重复该过程直至$\lfloor{\sqrt{n}}\rfloor$</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>代码实现也非常简单<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这里给到的是最优化的埃氏筛，就不列出退化的算法了</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getprime</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> notprime[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i * i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">if</span> (!notprime[i])</span><br><span class="line">            <span class="keyword">for</span> (j = i * i; j &lt;= n; j += i)</span><br><span class="line">                notprime[j] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="复杂度及其优劣"><a href="#复杂度及其优劣" class="headerlink" title="复杂度及其优劣"></a>复杂度及其优劣</h3><p>埃氏筛的复杂度为$O(n\log{\log{n}})$，由如下公式计算得出</p>
+<p>$$M=\lim_{n \to \infty}(\sum_{p \le n}\frac{1}{p}-\ln{(\ln{(n)})})$$</p>
+<p>其中$M$为<a href="https://zh.wikipedia.org/zh-hans/Meissel-Mertens%E5%B8%B8%E6%95%B0">Meissel–Mertens常数</a>，$p$为质数</p>
+<p>但是，埃氏筛仍然会有不少无谓的损耗，比如，12既会被2筛一次，又会被3筛一次，因而在数据量较大时仍有超时风险，容易被毒瘤数据卡，另外一种筛法<strong>欧拉筛</strong>就可以减少这样的损耗，因而更快。</p>
+<h2 id="欧拉筛（线性筛）"><a href="#欧拉筛（线性筛）" class="headerlink" title="欧拉筛（线性筛）"></a>欧拉筛（线性筛）</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>欧拉筛，又叫线性筛，这个别名正是因为它能在$O(n)$的线性时间内筛出2~n的所有素数，较埃氏筛更优</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我们在筛选的同时，维护一个素数序列，将所有筛得的素数都加入到该序列中</p>
+<p>仍以<code>n = 20</code>为例，对于序列</p>
+<p>$$2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20$$<br>$$primes:()$$</p>
+<p>从前往后遍历，第一个数是2，将其加入到素数序列中</p>
+<p>$$2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20$$<br>$$primes:(2)$$</p>
+<p>然后用当前遍历的数<code>2</code>去乘更新后的素数序列中的每一个素数，并将所得的结果<code>2*2=4</code>标记为非素数</p>
+<p>接下来是3，因为并未被标记为非素数，将其加入到素数序列中</p>
+<p>$$2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20$$<br>$$primes:(2,3)$$</p>
+<p>用当前遍历的数<code>3</code>去乘更新后的素数序列中的每一个素数，将所得结果<code>3*2=6</code>、<code>3*3=9</code>标记为非素数</p>
+<p>下一个数是合数4，已经被标记为非素数，因而直接用<code>4</code>去乘素数序列中的素数，关键来了：</p>
+<p>我们知道，$12=2*6=3*4$，那么12是不是会4和6被筛两次呢？复杂度是不是又退化了？</p>
+<p>并不是的，当我们遍历到某个合数时，仍然用它去乘素数序列中的素数，但为了防止上述如12那样的情况出现，我们增加一个限制条件</p>
+<p>对于合数$x$，在遍历至素数序列中的素数$p$时，若发现$p|x$，则结束对$x$的处理，继续遍历下一个数</p>
+<p>上述的语句等效于素数$p$是合数$x$的最小质因数，也就是说有等式$x=k*p$，而对于$x$的任意倍数，均有$p$为其最小质因数，因而我们通过上述处理保证了每一个合数仅被其最小质因数筛去，从而避免了无端的损耗。</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p>非常简单，只需要将思路所用的自然语言翻译即可</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getprime</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> notprime[], <span class="keyword">int</span> prime[], <span class="keyword">int</span> cnt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!notprime[i]) prime[cnt++] = i;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; cnt &amp;&amp; i * prime[j] &lt;= n; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            notprime[i * prime[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>素数筛的泛用性自不必多说，本文简述了两种素数筛算法，希望能帮助阅读本文的诸君加深对其的了解和对算法发自内心的热爱，谨以此文献给真正热爱Coding的人，望共勉。</p>
+<p>P.S. 笔者如有陈述不周之处还望斧正</p>
+]]></content>
+      <categories>
+        <category>算法学习笔记</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>素数筛</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速幂算法浅谈</title>
     <url>/2021/10/27/Quickpow/</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>快速幂是一种简单有效的高次幂算法，可以在$O(log\ n)$的时间里快速计算高次幂</p>
@@ -81,11 +132,5 @@
         <tag>算法</tag>
         <tag>快速幂</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello, the cruel World</title>
-    <url>/2021/10/26/Hello-World/</url>
-    <content><![CDATA[<h1 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h1><p>随缘更新，请见谅</p>
-]]></content>
   </entry>
 </search>
